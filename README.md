@@ -335,10 +335,12 @@ git checkout custom-setup
    - **Not able to create more than 1024 TUN interfaces:**
       - By default, the maximum number of `uesimtun` interfaces that UERANSIM can create is 1024, although you can connect an unlimited number of UEs (limited only by hardware capacity).
       - When trying to create more than 1024 `uesimtun` interfaces, `nr-ue` prints the following error:
+         
          ~~~bash
          [2025-12-02 14:04:46.158] [001010000001040|app] [error] TUN allocation failure [TUN interface name could not be allocated. Succcess]
          ~~~
       - To fix this, modify the `MAX_INTERFACE_COUNT` variable inside `src/ue/tun/config.cpp`:
+         
          ~~~C
          // From
          #define MAX_INTERFACE_COUNT 1024
@@ -347,6 +349,7 @@ git checkout custom-setup
          #define MAX_INTERFACE_COUNT <number>
          ~~~
       - Then rebuild UERANSIM:
+         
          ~~~bash
          cd ~/UERANSIM
 
