@@ -126,6 +126,18 @@ git checkout custom-setup
    docker compose -f sa-deploy.yaml up -d --no-deps upf
    ~~~
 
+3. Add UE route for WAN access:
+
+   ~~~bash
+   # Enable IPv4 forwarding
+   sudo sysctl -w net.ipv4.ip_forward=1
+
+   # Add NAT rule
+   sudo iptables -t nat -A POSTROUTING -o enp0s3 -j MASQUERADE
+   sudo iptables -A FORWARD -i ogstun -o enp0s3 -j ACCEPT
+   sudo iptables -A FORWARD -i enp0s3 -o ogstun -m state --state RELATED,ESTABLISHED -j ACCEPT
+   ~~~
+
 ## 7. SIMULATOR Setup
 
 ### UERANSIM Setup (Please refer to the [UERANSIM](https://github.com/aligungr/UERANSIM) repository for more information.)
