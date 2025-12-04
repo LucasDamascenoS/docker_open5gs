@@ -45,7 +45,6 @@ newgrp docker
 sudo reboot
 ~~~
 
-
 ## 2. Install pip and PyMongo
 
 ~~~bash
