@@ -113,8 +113,6 @@ git checkout custom-setup
    python3 script/add_imsi.py --count 10 --start 001010000000001
    ~~~
 
-   > ⚙️ To add subscribers with a different DNN (APN), open the `script/add_imsi.py` file and modify the field `'name': 'internet'` at line 61.
-
 ## 6. UPF Setup
 1. Edit the `.env` file:
    - Set `UPF_IP` and `UPF_ADVERTISE_IP` to the IP address of the **UPF** Virtual Machine.
@@ -331,3 +329,28 @@ git checkout custom-setup
    ~~~bash
    ping -I uesimtun0 google.com
    ~~~
+
+9. Troubleshooting:
+
+   - **Not able to create more than 1024 TUN interfaces:**
+      - By default, the maximum number of `uesimtun` interfaces that UERANSIM can create is 1024, although you can connect an unlimited number of UEs (limited only by hardware capacity).
+      - When trying to create more than 1024 `uesimtun` interfaces, `nr-ue` prints the following error:
+         ~~~bash
+         [2025-12-02 14:04:46.158] [001010000001040|app] [error] TUN allocation failure [TUN interface name could not be allocated. Succcess]
+         ~~~
+      - To fix this, modify the `MAX_INTERFACE_COUNT` variable inside `src/ue/tun/config.cpp`:
+         ~~~C
+         // From
+         #define MAX_INTERFACE_COUNT 1024
+
+         // To
+         #define MAX_INTERFACE_COUNT <number>
+         ~~~
+      - Then rebuild UERANSIM:
+         ~~~bash
+         cd ~/UERANSIM
+
+         make clean
+
+         make
+         ~~~
