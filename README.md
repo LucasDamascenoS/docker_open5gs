@@ -451,9 +451,9 @@ This setup uses three Virtual Machines in **VirtualBox**:
 
         ~~~bash
         u_str   LISTEN	  0	  4096	  ///tmp/sctpd_downstream.sock 99166	  * 0	  users:(("sctpd",pid=12422,fd=7))
-        u_str   LISTEN	  0	  4096	  ///tmp/sctpd_upstream.sock 106529	  * 0	  users:(("oai_mme",pid=12514,fd=130))
-        sctp    LISTEN	  0	  5	  [::ffff:192.168.123.25]:36412		  *:*	  users:(("sctpd",pid=12422,fd=15))
-        sctp    LISTEN	  0	  5	  [::ffff:192.168.123.25]:38412		  *:*	  users:(("sctpd",pid=12422,fd=17))
+        u_str   LISTEN	  0	  4096	  ///tmp/sctpd_upstream.sock 106529	    * 0	  users:(("oai_mme",pid=12514,fd=130))
+        sctp    LISTEN	  0	  5	      [::ffff:192.168.123.25]:36412		      *:*	  users:(("sctpd",pid=12422,fd=15))
+        sctp    LISTEN	  0	  5	      [::ffff:192.168.123.25]:38412		      *:*	  users:(("sctpd",pid=12422,fd=17))
         ~~~
     
     - If the ports are missing, reboot the AGW and restart the containers properly:
@@ -621,7 +621,7 @@ This setup uses three Virtual Machines in **VirtualBox**:
 
 > 💡 This setup uses the Docker-based UERANSIM images and is recommended for simple or single-UE testing.
 
-> 💡 If you need to run multiple UEs or perform load testing, refer to the [Source UERANSIM Setup](#source-ueransim-setup-5g).
+> 💡 If you need to run multiple UEs or perform load testing, refer to the **Source UERANSIM Setup**.
 
 1. After complete the installation, update and upgrade the Virtual Machine:
 
@@ -717,7 +717,7 @@ This setup uses three Virtual Machines in **VirtualBox**:
 
 > 💡 This setup builds UERANSIM from source and is recommended for multi-UE or load testing.
 
-> 💡 If you only need to connect a single UE for basic testing, refer to the [Docker UERANSIM Setup](#docker-ueransim-setup-5g).
+> 💡 If you only need to connect a single UE for basic testing, refer to the **Docker UERANSIM Setup**.
 
 > ℹ️ Please refer to the [UERANSIM](https://github.com/aligungr/UERANSIM) repository for more information.
 
