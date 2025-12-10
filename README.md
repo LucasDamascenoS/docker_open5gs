@@ -452,8 +452,8 @@ This setup uses three Virtual Machines in **VirtualBox**:
         ~~~bash
         u_str   LISTEN	  0	  4096	  ///tmp/sctpd_downstream.sock 99166    * 0   users:(("sctpd",pid=12422,fd=7))
         u_str   LISTEN	  0	  4096	  ///tmp/sctpd_upstream.sock 106529     * 0   users:(("oai_mme",pid=12514,fd=130))
-        sctp    LISTEN	  0	  5	      [::ffff:192.168.123.25]:36412		      *:*   users:(("sctpd",pid=12422,fd=15))
-        sctp    LISTEN	  0	  5	      [::ffff:192.168.123.25]:38412		      *:*   users:(("sctpd",pid=12422,fd=17))
+        sctp    LISTEN	  0	  5	      [::ffff:192.168.123.25]:36412         *:*   users:(("sctpd",pid=12422,fd=15))
+        sctp    LISTEN	  0	  5	      [::ffff:192.168.123.25]:38412         *:*   users:(("sctpd",pid=12422,fd=17))
         ~~~
     
     - If the ports are missing, reboot the AGW and restart the containers properly:
