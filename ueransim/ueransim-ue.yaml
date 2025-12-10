@@ -10,7 +10,7 @@ key: 'UE1_KI'
 # Operator code (OP or OPC) of the UE
 op: 'UE1_OP'
 # This value specifies the OP type and it can be either 'OP' or 'OPC'
-opType: 'OP'
+opType: 'OPC'
 # Authentication Management Field (AMF) value
 amf: 'UE1_AMF'
 # IMEI number of the device. It is used if no SUPI is provided
@@ -42,14 +42,17 @@ sessions:
     apn: 'internet'
     slice:
       sst: 1
+      sd: 0xffffff
 
 # Configured NSSAI for this UE by HPLMN
 configured-nssai:
   - sst: 1
+    sd: 0xffffff
 
 # Default Configured NSSAI for this UE
 default-nssai:
   - sst: 1
+    sd: 0xffffff
 
 # Supported encryption algorithms by this UE
 integrity:
